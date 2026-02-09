@@ -28,7 +28,7 @@ D:\Microchips\
 | 2. EDA Infra | ✅ Completada | Neuro-Weave spec, pipeline agéntico SDD |
 | 3. Technical Specs | ✅ Completada | CoWoS fundamentals, ATDI analyzer |
 | 4. Market Analysis | ✅ Completada | Supply chain risks, EU Chips Act, financial model |
-| 5. Docs | ⏳ Pendiente | Business case, presentación |
+| 5. Docs | ✅ Completada | Business case, pitch deck, roadmap 3 años |
 
 ## Próximos Pasos
 
