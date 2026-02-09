@@ -16,15 +16,67 @@
 
 Estas reglas derivan de las leyes de la física y no pueden ser modificadas por conveniencia comercial.
 
+### 2.1 Límites Térmicos y Estructurales
+
 | ID | Regla | Límite | Justificación |
 |----|-------|--------|---------------|
 | PHY-001 | Límite térmico de interposer | ≤ 105°C TJ | Degradación del silicio sobre este umbral |
 | PHY-002 | Densidad de TSV (Through-Silicon Via) | ≤ 10,000/mm² | Integridad estructural del die |
 | PHY-003 | Pitch mínimo de micro-bumps | ≥ 40μm | Límite de manufactura actual |
 | PHY-004 | Altura de stack HBM | ≤ 12 dies | Límite de disipación térmica |
+| PHY-005 | Área máxima interposer | ≤ 2,500 mm² | Límite reticle TSMC |
+| PHY-006 | Warpage máximo | ≤ 200 μm | Integridad mecánica |
+
+### 2.2 Reglas de Routing
+
+| ID | Regla | Límite | Justificación |
+|----|-------|--------|---------------|
+| RT-001 | Longitud máxima de señal | ≤ 15 mm | Timing closure |
+| RT-002 | Densidad de corriente | ≤ 2.5 mA/μm² | Electromigración |
+| RT-003 | Vías por señal HBM | ≤ 3 | Minimizar resistencia |
+| RT-004 | IR drop máximo | ≤ 3% Vdd | Integridad de señal |
+
+### 2.3 Reglas de Placement
+
+| ID | Regla | Límite | Justificación |
+|----|-------|--------|---------------|
+| PL-001 | Separación HBM-GPU | ≥ 500 μm | Zona transición térmica |
+| PL-002 | Chiplets en esquinas | Prohibido (5mm exclusion) | Estrés mecánico |
 
 > [!CAUTION]
 > Violar estas reglas resulta en chips defectuosos. No hay excepciones.
+
+---
+
+## Artículo II-B: Reglas ATDI (Deuda Técnica Arquitectónica)
+
+El sistema ATDI detecta "Hardware Smells" que predicen fallos de fabricación o mantenimiento.
+
+### Smells con Bloqueo Automático
+
+| ID | Smell | Descripción | Acción |
+|----|-------|-------------|--------|
+| ATDI-001 | Cyclic Dependency | Bucle de señales sin resolver | 🔴 **BLOQUEO** |
+| ATDI-002 | Dense Structure | TSV density > 10k/mm² | 🔴 **BLOQUEO** |
+
+### Smells con Alerta
+
+| ID | Smell | Umbral | Acción |
+|----|-------|--------|--------|
+| ATDI-003 | Hub-Like | > 8 conexiones/nodo | 🟠 Revisión térmica |
+| ATDI-004 | God Component | > 5 funciones/bloque | 🟠 Descomposición |
+
+### Quality Gate
+
+```yaml
+atdi_quality_gate:
+  max_score: 0.3
+  on_exceed: BLOCK_TAPEOUT
+  log_to: audit_log.json
+```
+
+> [!WARNING]
+> Ningún diseño con ATDI > 0.3 puede proceder a tape-out sin aprobación explícita del CTO.
 
 ---
 
