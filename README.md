@@ -27,7 +27,7 @@ D:\Microchips\
 | 1. Gobernanza | ✅ Completada | Constitution, RACI, ISO/NIST mapping |
 | 2. EDA Infra | ✅ Completada | Neuro-Weave spec, pipeline agéntico SDD |
 | 3. Technical Specs | ✅ Completada | CoWoS fundamentals, ATDI analyzer |
-| 4. Market Analysis | ⏳ Pendiente | Viabilidad, EU Chips Act |
+| 4. Market Analysis | ✅ Completada | Supply chain risks, EU Chips Act, financial model |
 | 5. Docs | ⏳ Pendiente | Business case, presentación |
 
 ## Próximos Pasos
