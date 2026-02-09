@@ -25,7 +25,7 @@ D:\Microchips\
 | Fase | Estado | Descripción |
 |------|--------|-------------|
 | 1. Gobernanza | ✅ Completada | Constitution, RACI, ISO/NIST mapping |
-| 2. EDA Infra | ⏳ Pendiente | Spec-Driven Development pipeline |
+| 2. EDA Infra | ✅ Completada | Neuro-Weave spec, pipeline agéntico SDD |
 | 3. Technical Specs | ⏳ Pendiente | CoWoS fundamentals, ATDI metrics |
 | 4. Market Analysis | ⏳ Pendiente | Viabilidad, EU Chips Act |
 | 5. Docs | ⏳ Pendiente | Business case, presentación |
